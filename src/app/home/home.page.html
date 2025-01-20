@@ -1,20 +1,86 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="home-page">
+    <div>
+      <h1>Welcome to My Pixelated World!</h1>
+      <p>Explore my projects and skills through this retro-themed portfolio site.</p>
+      <p>MORE COMING SOON!!!</p>
+    </div>
   </div>
+
+  <!-- Scroll down section with buttons -->
+<div class="button-section">
+  <button (click)="toggleSection('projects')">Projects</button>
+  <button (click)="toggleSection('facts')">Fun Facts</button>
+  <button (click)="toggleSection('contactus')">Contact Me</button>
+</div>
+
+<!-- Projects section, shown when the "Projects" button is clicked -->
+<div class="content-section" *ngIf="showProjects">
+  <h2>My Projects</h2>
+  <p>Here are some of the amazing projects I've worked on...</p>
+
+  <div class="projects-grid">
+    <!-- Example Project Cards -->
+    <div class="project-card" *ngFor="let project of projects">
+      <img [src]="project.image" alt="{{ project.title }} thumbnail" class="project-image" />
+      <div class="project-info">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <a [href]="project.link" target="_blank" class="project-link">View Project</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fun Facts section, shown when the "Fun Facts" button is clicked -->
+<div class="content-section" *ngIf="showFacts">
+  <h2>Fun Facts</h2>
+  <p>Here are some fun facts about me:</p>
+  <section id="fun-facts">
+    <div class="facts-container">
+      <div class="fact">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/027/517/766/small_2x/pixel-art-paint-brush-icon-png.png" alt="Paintbrush" class="paintbrush"/>
+        <p>I enjoy drawing in my free time.</p>
+      </div>
+      <div class="fact">
+        <img src="https://firstalberta.ca/wp-content/uploads/2024/09/FIRSTTech_iconHorz_RGB.png" alt="Robot Icon" class="FTC"/>
+        <p>I’ve been involved in the FTC competition for 4 years and have contributed to the programming team!</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Contact Me section, shown when the "Contact-Me" button is clicked -->
+<div class="content-section" *ngIf="showContact">
+  <h2>Contact Me</h2>
+  <p>Feel free to reach out and connect with me on my social platforms!</p>
+  
+  <section id="fun-facts">
+    <h2>Find Me On</h2>
+    <div class="facts-container">
+      <div class="fact">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="paintbrush"/>
+        <p>
+          <a href="https://www.linkedin.com/in/sukhdeep-somal-190baa276/" target="_blank" rel="noopener noreferrer" style="color: #f9f9f9; text-decoration: none;">LinkedIn</a>
+        </p>
+      </div>
+      <div class="fact">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" class="paintbrush"/>
+        <p>
+          <a href="https://www.instagram.com/_twistedmiraculous/" target="_blank" rel="noopener noreferrer" style="color: #f9f9f9; text-decoration: none;">Instagram</a>
+        </p>
+      </div>
+      <div class="fact">
+        <img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/github_logo_icon_145252.png" alt="GitHub" class="paintbrush"/>
+        <p>
+          <a href="https://github.com/TwistedMiraculous" target="_blank" rel="noopener noreferrer" style="color: #f9f9f9; text-decoration: none;">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+</div>
+
+
 </ion-content>
